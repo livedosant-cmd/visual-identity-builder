@@ -49,6 +49,12 @@ const floorplanPageByArea = {
   "32": 20,
 } as const;
 
+const unitThumbnailByArea = {
+  "20": "/unidades/studio-20m2.webp",
+  "25": "/unidades/studio-25m2.webp",
+  "32": "/unidades/studio-32m2.webp",
+} as const;
+
 const units = [
   { number: "305", type: "HIS", area: "25,39 m²", price: "R$ 357.050,00" },
   { number: "306", type: "R2V", area: "20,47 m²", price: "R$ 406.180,00" },
@@ -196,17 +202,11 @@ function Index() {
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {units.map((unit) => (
               <article key={unit.number} className="unit-card group overflow-hidden">
-                <div className="-mx-6 -mt-6 mb-5 h-40 overflow-hidden border-b border-border bg-black">
-                  <iframe
-                    title={`Planta ilustrativa da unidade ${unit.number}, ${unit.area}`}
-                    src={`${floorplanPdf}#page=${floorplanPageByArea[unit.area.slice(0, 2) as keyof typeof floorplanPageByArea]}&view=FitH`}
-                    className="border-0"
-                    style={{
-                      width: "720px",
-                      height: "405px",
-                      transform: "scale(0.5)",
-                      transformOrigin: "top left",
-                    }}
+                <div className="-mx-6 -mt-6 mb-5 h-40 overflow-hidden border-b border-border bg-muted">
+                  <img
+                    src={unitThumbnailByArea[unit.area.slice(0, 2) as keyof typeof unitThumbnailByArea]}
+                    alt={`Planta ilustrativa da unidade ${unit.number}, ${unit.area}`}
+                    className="h-full w-full object-cover object-center"
                     loading="lazy"
                   />
                 </div>
