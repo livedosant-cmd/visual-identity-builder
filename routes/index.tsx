@@ -23,6 +23,13 @@ import logoLightAsset from "../assets/revenda-logo-light.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    links: [
+      {
+        rel: "icon",
+        href: logoBrownAsset.url,
+        type: "image/png",
+      },
+    ],
     meta: [
       { title: "Nex One Bela Cintra | Revenda Imóvel" },
       {
