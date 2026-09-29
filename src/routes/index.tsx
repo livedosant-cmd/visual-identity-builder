@@ -260,7 +260,7 @@ function Index() {
           ) : (
             <form onSubmit={submitLead} className="grid gap-4 rounded-sm bg-background p-6 text-foreground md:grid-cols-2 md:p-8">
               <label className="field md:col-span-2"><span>Nome</span><input required name="name" maxLength={100} autoComplete="name" placeholder="Como podemos chamar você?" /></label>
-              <label className="field"><span>Telefone</span><input required name="phone" type="tel" inputMode="tel" maxLength={20} autoComplete="tel" pattern="[0-9()+. -]{8,20}" placeholder="(11) 99999-9999" /></label>
+              <label className="field"><span>Telefone</span><input required name="phone" type="tel" inputMode="tel" minLength={8} maxLength={20} autoComplete="tel" placeholder="(11) 99999-9999" /></label>
               <label className="field"><span>E-mail</span><input required name="email" type="email" maxLength={255} autoComplete="email" placeholder="voce@email.com" /></label>
               <label className="field md:col-span-2"><span>Unidade de interesse</span><select name="unit" value={selectedUnit} onChange={(event) => setSelectedUnit(event.target.value)}><option value="" disabled>Selecione uma unidade</option>{units.map((unit) => <option key={unit.number} value={unit.number}>Unidade {unit.number} · {unit.area} · {unit.price}</option>)}</select></label>
               <button type="submit" className="button button-dark mt-2 md:col-span-2">Quero receber mais informações <ArrowRight size={17} /></button>
