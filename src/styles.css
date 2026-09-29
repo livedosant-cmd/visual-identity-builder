@@ -291,3 +291,74 @@
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
+
+
+.unit-artwork {
+  position: relative;
+  isolation: isolate;
+  height: 10rem;
+  margin: -1.5rem -1.5rem 1.25rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 22%, color-mix(in oklab, var(--primary) 18%, transparent), transparent 35%),
+    var(--brand-dark);
+  color: var(--brand-dark-foreground);
+}
+
+.unit-artwork-grid {
+  position: absolute;
+  inset: 0;
+  opacity: .12;
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--brand-soft) 70%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--brand-soft) 70%, transparent) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.unit-artwork-plan {
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  width: 68%;
+  height: 70%;
+  border: 1.5px solid color-mix(in oklab, var(--brand-soft) 72%, transparent);
+  transform: rotate(-4deg);
+  box-shadow: 12px 12px 0 color-mix(in oklab, var(--primary) 18%, transparent);
+}
+
+.unit-wall {
+  position: absolute;
+  display: block;
+  background: color-mix(in oklab, var(--brand-soft) 78%, transparent);
+}
+
+.unit-wall-top, .unit-wall-bottom { left: 18%; right: 0; height: 1.5px; }
+.unit-wall-top { top: 31%; }
+.unit-wall-bottom { bottom: 26%; }
+.unit-wall-left, .unit-wall-right { top: 0; bottom: 0; width: 1.5px; }
+.unit-wall-left { left: 38%; }
+.unit-wall-right { right: 25%; }
+
+.unit-room {
+  position: absolute;
+  border: 1px solid color-mix(in oklab, var(--brand-soft) 35%, transparent);
+}
+.unit-room-living { left: 4%; top: 36%; width: 34%; height: 37%; }
+.unit-room-bedroom { left: 39%; top: 36%; width: 36%; height: 38%; }
+.unit-room-bath { right: 5%; top: 8%; width: 20%; height: 23%; }
+.unit-counter { position: absolute; left: 5%; top: 8%; width: 28%; height: 9%; border: 2px solid var(--primary); border-left: 0; }
+.unit-bed { position: absolute; left: 48%; top: 45%; width: 19%; height: 19%; border: 1px solid color-mix(in oklab, var(--brand-soft) 70%, transparent); border-radius: 2px; }
+.unit-window { position: absolute; right: 0; bottom: 11%; width: 25%; height: 3px; background: var(--primary); }
+
+.unit-artwork-label {
+  position: absolute;
+  right: 1rem;
+  bottom: .8rem;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: var(--brand-soft);
+}
+
+.unit-artwork-wide .unit-artwork-plan { width: 73%; left: 12%; transform: rotate(-2deg) scale(1.02); }
+.unit-artwork-compact .unit-artwork-plan { width: 62%; left: 18%; transform: rotate(4deg) scale(.94); }
