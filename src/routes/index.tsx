@@ -17,6 +17,8 @@ import { useState, type FormEvent } from "react";
 import facadeAsset from "../assets/nex-one-fachada.jpg.asset.json";
 import fitnessAsset from "../assets/nex-one-fitness.jpg.asset.json";
 import poolAsset from "../assets/nex-one-piscina.jpg.asset.json";
+import logoBrownAsset from "../assets/revenda-logo-brown.png.asset.json";
+import logoLightAsset from "../assets/revenda-logo-light.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -61,13 +63,12 @@ const amenities = [
 
 function BrandMark({ inverse = false }: { inverse?: boolean }) {
   return (
-    <a href="#topo" className={`brand-mark ${inverse ? "brand-mark-inverse" : ""}`} aria-label="Revenda Imóvel — início">
-      <span className="brand-symbol" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-      </span>
-      <span className="brand-name">Revenda<br />Imóvel</span>
+    <a href="#topo" className="brand-mark" aria-label="Revenda Imóvel — início">
+      <img
+        src={inverse ? logoLightAsset.url : logoBrownAsset.url}
+        alt="Revenda Imóvel"
+        className="brand-logo"
+      />
     </a>
   );
 }
