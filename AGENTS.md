@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep the public experience as a single-page Revenda Imóvel property showcase; this matches the current lead-generation purpose.
+- Use the Revenda Imóvel manual exactly: Jost, #D76B28, #F5E9DA, #5A3E2B, and official logo lockups; this preserves brand consistency.
