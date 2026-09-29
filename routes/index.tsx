@@ -62,29 +62,6 @@ const amenities = [
   { icon: Building2, label: "Wellness" },
 ];
 
-function UnitArtwork({ area }: { area: string }) {
-  const size = area.startsWith("32") ? "wide" : area.startsWith("25") ? "medium" : "compact";
-
-  return (
-    <div className={`unit-artwork unit-artwork-${size}`} aria-hidden="true">
-      <div className="unit-artwork-grid" />
-      <div className="unit-artwork-plan">
-        <span className="unit-wall unit-wall-top" />
-        <span className="unit-wall unit-wall-right" />
-        <span className="unit-wall unit-wall-bottom" />
-        <span className="unit-wall unit-wall-left" />
-        <span className="unit-room unit-room-living" />
-        <span className="unit-room unit-room-bedroom" />
-        <span className="unit-room unit-room-bath" />
-        <span className="unit-counter" />
-        <span className="unit-bed" />
-        <span className="unit-window" />
-      </div>
-      <span className="unit-artwork-label">{area.replace(" m²", "")} M²</span>
-    </div>
-  );
-}
-
 function BrandMark({ inverse = false }: { inverse?: boolean }) {
   return (
     <a href="#topo" className="brand-mark" aria-label="Revenda Imóvel — início">
@@ -212,7 +189,6 @@ function Index() {
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {units.map((unit) => (
               <article key={unit.number} className="unit-card group overflow-hidden">
-                <UnitArtwork area={unit.area} />
                 <div className="flex items-start justify-between">
                   <span className="availability"><Check size={12} /> Disponível</span>
                   <span className="text-sm font-medium text-muted-foreground">{unit.type}</span>
