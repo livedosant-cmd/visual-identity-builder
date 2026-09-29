@@ -20,14 +20,13 @@ import fitnessAsset from "../assets/nex-one-fitness.jpg.asset.json";
 import poolAsset from "../assets/nex-one-piscina.jpg.asset.json";
 import logoBrownAsset from "../assets/revenda-logo-brown.png.asset.json";
 import logoLightAsset from "../assets/revenda-logo-light.png.asset.json";
-import logoOrangeAsset from "../assets/Logo Laranja.svg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     links: [
       {
         rel: "icon",
-        href: logoOrangeAsset,
+        href: logoLightAsset.url,
         type: "image/png",
       },
     ],
