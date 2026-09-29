@@ -20,7 +20,6 @@ import fitnessAsset from "../assets/nex-one-fitness.jpg.asset.json";
 import poolAsset from "../assets/nex-one-piscina.jpg.asset.json";
 import logoBrownAsset from "../assets/revenda-logo-brown.png.asset.json";
 import logoLightAsset from "../assets/revenda-logo-light.png.asset.json";
-import floorplanPdf from "../assets/Cópia de AF_ONE_007_26_DIGITAL_NEXONE_BELA_CINTRA_BOOK_CLIENTE (2) 2 (1).pdf";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,18 +42,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const floorplanPageByArea = {
-  "20": 12,
-  "25": 15,
-  "32": 20,
-} as const;
-
-const unitThumbnailByArea = {
-  "20": "/unidades/studio-20m2.webp",
-  "25": "/unidades/studio-25m2.webp",
-  "32": "/unidades/studio-32m2.webp",
-} as const;
-
 const units = [
   { number: "305", type: "HIS", area: "25,39 m²", price: "R$ 357.050,00" },
   { number: "306", type: "R2V", area: "20,47 m²", price: "R$ 406.180,00" },
@@ -74,6 +61,29 @@ const amenities = [
   { icon: Waves, label: "Piscina no rooftop" },
   { icon: Building2, label: "Wellness" },
 ];
+
+function UnitArtwork({ area }: { area: string }) {
+  const size = area.startsWith("32") ? "wide" : area.startsWith("25") ? "medium" : "compact";
+
+  return (
+    <div className={`unit-artwork unit-artwork-${size}`} aria-hidden="true">
+      <div className="unit-artwork-grid" />
+      <div className="unit-artwork-plan">
+        <span className="unit-wall unit-wall-top" />
+        <span className="unit-wall unit-wall-right" />
+        <span className="unit-wall unit-wall-bottom" />
+        <span className="unit-wall unit-wall-left" />
+        <span className="unit-room unit-room-living" />
+        <span className="unit-room unit-room-bedroom" />
+        <span className="unit-room unit-room-bath" />
+        <span className="unit-counter" />
+        <span className="unit-bed" />
+        <span className="unit-window" />
+      </div>
+      <span className="unit-artwork-label">{area.replace(" m²", "")} M²</span>
+    </div>
+  );
+}
 
 function BrandMark({ inverse = false }: { inverse?: boolean }) {
   return (
@@ -202,14 +212,7 @@ function Index() {
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {units.map((unit) => (
               <article key={unit.number} className="unit-card group overflow-hidden">
-                <div className="-mx-6 -mt-6 mb-5 h-40 overflow-hidden border-b border-border bg-muted">
-                  <img
-                    src={unitThumbnailByArea[unit.area.slice(0, 2) as keyof typeof unitThumbnailByArea]}
-                    alt={`Planta ilustrativa da unidade ${unit.number}, ${unit.area}`}
-                    className="h-full w-full object-cover object-center"
-                    loading="lazy"
-                  />
-                </div>
+                <UnitArtwork area={unit.area} />
                 <div className="flex items-start justify-between">
                   <span className="availability"><Check size={12} /> Disponível</span>
                   <span className="text-sm font-medium text-muted-foreground">{unit.type}</span>
@@ -229,14 +232,6 @@ function Index() {
                   className="mt-6 flex items-center justify-between text-sm font-semibold text-primary"
                 >
                   Quero saber mais <ChevronRight size={17} className="transition-transform group-hover:translate-x-1" />
-                </a>
-                <a
-                  href={`${floorplanPdf}#page=${floorplanPageByArea[unit.area.slice(0, 2) as keyof typeof floorplanPageByArea]}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-3 block text-xs font-medium text-muted-foreground underline underline-offset-4"
-                >
-                  Abrir planta no PDF
                 </a>
                 <a href={whatsappUrl(unit.number)} target="_blank" rel="noreferrer" className="mt-4 flex items-center gap-2 border-t border-border pt-4 text-sm font-semibold text-foreground">
                   <MessageCircle size={16} className="text-primary" /> Consultar no WhatsApp
