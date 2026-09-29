@@ -78,7 +78,7 @@ function Index() {
   const [sent, setSent] = useState(false);
   const [selectedUnit, setSelectedUnit] = useState("");
 
-  const whatsappBaseUrl = "https://wa.me/5511981799032";
+  const whatsappBaseUrl = "https://api.whatsapp.com/send?phone=5511981799032";
 
   function whatsappUrl(unit?: string) {
     const unitDetails = units.find((item) => item.number === unit);
