@@ -207,7 +207,7 @@ function Index() {
                   }}
                   className="mt-6 flex items-center justify-between text-sm font-semibold text-primary"
                 >
-                  Tenho interesse <ChevronRight size={17} className="transition-transform group-hover:translate-x-1" />
+                  Quero saber mais <ChevronRight size={17} className="transition-transform group-hover:translate-x-1" />
                 </a>
                 <a href={whatsappUrl(unit.number)} target="_blank" rel="noreferrer" className="mt-4 flex items-center gap-2 border-t border-border pt-4 text-sm font-semibold text-foreground">
                   <MessageCircle size={16} className="text-primary" /> Consultar no WhatsApp
