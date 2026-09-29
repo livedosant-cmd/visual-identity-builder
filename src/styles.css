@@ -206,6 +206,28 @@
 @utility button-light { background: var(--hero-foreground); color: var(--brand-dark); }
 @utility button-dark { background: var(--brand-dark); color: var(--brand-dark-foreground); width: 100%; }
 @utility button-ghost { border: 1px solid color-mix(in oklab, var(--hero-foreground) 38%, transparent); color: var(--hero-foreground); }
+@utility button-whatsapp { border: 1px solid color-mix(in oklab, var(--hero-foreground) 45%, transparent); color: var(--hero-foreground); }
+@utility button-outline { border: 1px solid var(--brand-dark); color: var(--brand-dark); width: 100%; }
+
+@utility whatsapp-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 40;
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  background: var(--brand-dark);
+  color: var(--brand-dark-foreground);
+  padding-inline: 1rem;
+  font-size: 0.82rem;
+  font-weight: 650;
+  box-shadow: 0 12px 32px color-mix(in oklab, var(--brand-dark) 25%, transparent);
+  transition: transform 180ms ease, background-color 180ms ease;
+  &:hover { transform: translateY(-2px); background: var(--primary); }
+}
 
 @utility brand-mark {
   display: inline-flex;
