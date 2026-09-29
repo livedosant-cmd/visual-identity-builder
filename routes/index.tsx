@@ -200,7 +200,13 @@ function Index() {
                   <iframe
                     title={`Planta ilustrativa da unidade ${unit.number}, ${unit.area}`}
                     src={`${floorplanPdf}#page=${floorplanPageByArea[unit.area.slice(0, 2) as keyof typeof floorplanPageByArea]}&view=FitH`}
-                    className="h-full w-full border-0"
+                    className="border-0"
+                    style={{
+                      width: "720px",
+                      height: "405px",
+                      transform: "scale(0.5)",
+                      transformOrigin: "top left",
+                    }}
                     loading="lazy"
                   />
                 </div>
